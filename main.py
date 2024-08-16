@@ -59,7 +59,7 @@ def deidentify_table_replace_with_info_types(
         FROM `{project}.{dataset}.{input_table}` 
     """
 
-    table_id = "project_id.dataset_id.table_id"
+    table_id = "{project}.{dataset}.{input_table}"
 
     job_config = bigquery.QueryJobConfig(
         allow_large_results=True,
@@ -125,7 +125,7 @@ def deidentify_table_replace_with_info_types(
         request={
             "parent": parent,
             "deidentify_config": {
-                "deidentify_template_name": "projects/project_id/locations/global/deidentifyTemplates/template_id",
+                "deidentify_template_name": "projects/{project}/locations/global/deidentifyTemplates/template_id",
             },
             "item": item,
             "inspect_config": inspect_config,
