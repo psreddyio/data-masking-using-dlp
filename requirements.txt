@@ -1,0 +1,4 @@
+google-cloud-dlp
+google-cloud-bigquery
+pandas
+typing
